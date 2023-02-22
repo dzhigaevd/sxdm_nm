@@ -908,16 +908,3 @@ class Dummy(Detector):
             return self.custom_pixelsize, self.custom_pixelsize
         self.logger.info(f"Defaulting the pixel size to {55e-06, 55e-06}")
         return 55e-06, 55e-06
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
