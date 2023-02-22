@@ -1,34 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@DzhigaevD 
-carnisj
-/
-bcdi
-Public
-Code
-Issues
-18
-Pull requests
-Discussions
-Actions
-Projects
-Wiki
-Security
-Insights
-bcdi/bcdi/experiment/detector.py /
-
-Jerome Carnis Use isort to check the format of imports
-Latest commit 70360ac 7 days ago
- History
- 3 contributors
-@carnisj@deepsource-autofix@clatlan
-963 lines (801 sloc)  28.6 KB
-   
 # -*- coding: utf-8 -*-
 
 # BCDI: tools for pre(post)-processing Bragg coherent X-ray diffraction imaging data
