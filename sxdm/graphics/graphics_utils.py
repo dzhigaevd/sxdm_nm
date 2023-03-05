@@ -9,6 +9,9 @@ from scipy import ndimage, interpolate
 import numpy as np
 import matplotlib.pyplot as plt
 
+H = 4.1357e-15;                                  # Plank's constant
+C = 2.99792458e8;                                # Speed of light in vacuum
+
 class IndexTracker:
     def __init__(self, ax, data, axis):
         self.ax = ax
@@ -72,14 +75,11 @@ def scroll_data(data, axis=None, colormap=None):
     return tracker
     
 def show_q_space_projections(qx,qy,qz,data):    
-#     Constants. They are needed for correct labeling of axes
-    h                       = 4.1357e-15;                                  # Plank's constant
-    c                       = 2.99792458e8;                                # Speed of light in vacuum
     energy = 11000
     pitch = 55e-6
     radius = 0.4
     
-    wavelength = h*c/energy
+    wavelength = H*C/energy
 
     dq = (2*np.pi*pitch/(radius*wavelength))
     
