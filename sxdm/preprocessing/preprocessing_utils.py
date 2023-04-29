@@ -74,6 +74,7 @@ def COM_voxels_reciproc(data, Qx, Qz, Qy ):
     #print( COM_qx, COM_qz, COM_qy)
     return COM_qx, COM_qz, COM_qy
 
+
 def grid_bcdi_labframe(
     data,
     mask,
