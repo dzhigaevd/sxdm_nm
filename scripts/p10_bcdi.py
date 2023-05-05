@@ -43,6 +43,7 @@ import os
 import numpy as np
 from scipy.ndimage import measurements
 from scipy.ndimage.interpolation import affine_transform
+import scipy.io as scio
 import hdf5plugin
 import h5py
 import matplotlib.pyplot as plt
@@ -297,6 +298,7 @@ def plotandsave2(RSM_int,  pathsavetmp, mask=np.array([])):
     # plt.close()
     return
 
+
 def numpy2vtk(filename, a, dx=1.0,dy=1.0,dz=1.0,x0=0.0,y0=0.0,z0=0.0):
    # http://www.vtk.org/pdf/file-formats.pdf
    f=open(filename,'w')
@@ -319,8 +321,7 @@ def numpy2vtk(filename, a, dx=1.0,dy=1.0,dz=1.0,x0=0.0,y0=0.0,z0=0.0):
 
 def main(scan):
     #Inputs: select the functions of the code
-    # Functions_selected=['Gif', 'Direct_cut', 'Reciprocal_space_map', '2D_cuts']
-    Functions_selected=['Reciprocal_space_map', '2D_cuts']
+    Functions_selected=['Gif', 'Direct_cut', 'Reciprocal_space_map', '2D_cuts']
     
     #Inputs: general information
     year="2020"                                                                     #The year for the experiemnt
@@ -554,8 +555,10 @@ def main(scan):
         
         print("saving the RSM cut for pynx...")
         pathsavenpy=os.path.join(pathtmp, "scan%04d_fast_cubic.npz"%scan)
+        pathsavemat=os.path.join(pathtmp, "scan%04d_fast_cubic.mat"%scan)
         np.savez_compressed(pathsavenpy, data=RSM_cut)
-    
+        scio.savemat(pathsavemat, mdict={'rsm_data': RSM_int, 'q_range': q_range})
+        
         #load the mask and generate the new mask for the 3D reciprocal space map
         if generating_mask:
             print('Loading the mask...')

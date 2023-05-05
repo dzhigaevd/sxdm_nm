@@ -100,6 +100,7 @@ class BCDI_Information:
             self.para_list.at[(section, para_name), 'value']=para_value
         return
     
+
 def main():
     path=r'E:\Work place 2\sample\XRD\20190530 Desy P10\scan file 2\Area D2\scan00028\cutqx\2D_retrieval_information.txt'
     infor=BCDI_Information(path)
@@ -107,6 +108,7 @@ def main():
     infor.add_para('size_lim', "Trial 04", [28, 29])
     print(infor.para_list.index)
     return
+
 
 if __name__=='__main__':
     main()
